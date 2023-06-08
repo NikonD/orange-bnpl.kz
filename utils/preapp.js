@@ -27,9 +27,9 @@ let preApp = async (acceess) => {
           "itemSum": 6123
         }
       ],
-      "successRedirect": "http://3.76.224.188:5555//callback",
-      "failRedirect": "http://3.76.224.188:5555//callback",
-      "postLink": "http://3.76.224.188:5555//callback",
+      "successRedirect": "http://3.76.224.188:5555/callback",
+      "failRedirect": "http://3.76.224.188:5555/callback",
+      "postLink": "http://3.76.224.188:5555/callback",
       "phoneNumber": "77773295237",
       // "expiresAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
       // "deliveryAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
