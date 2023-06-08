@@ -38,6 +38,18 @@ app.post('/callback', (req, res)=>{
   res.redirect('/')
 })
 
+app.get('/callback/success', (req, res)=>{
+  console.log("POST", req.body)
+  console.log("POST", req.params)
+  res.redirect('/')
+})
+
+app.get('/callback/falilure', (req, res)=>{
+  console.log("POST", req.body)
+  console.log("POST", req.params)
+  res.redirect('/')
+})
+
 app.get('/', (req, res) => {
   res.send('<h1>Hello</h1>')
 })

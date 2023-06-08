@@ -1,6 +1,6 @@
 const { default: axios } = require("axios")
 
-let preApp = async (acceess) => {
+let preApp = async (acceess, phone) => {
   console.log(acceess)
   let preappResponse = await axios({
     url: 'https://dev.bnpl.kz/api/bnpl/v3/preapp',
@@ -27,8 +27,8 @@ let preApp = async (acceess) => {
           "itemSum": 6123
         }
       ],
-      "successRedirect": "http://3.76.224.188:5555/callback",
-      "failRedirect": "http://3.76.224.188:5555/callback",
+      "successRedirect": "http://3.76.224.188:5555/callback/success",
+      "failRedirect": "http://3.76.224.188:5555/callback/failure",
       "postLink": "http://3.76.224.188:5555/callback",
       "phoneNumber": "77773295237",
       // "expiresAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
