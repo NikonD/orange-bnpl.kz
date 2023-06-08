@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script defer="defer" src="https://dev.bnpl.kz/widget/index_bundle.js"></script>
+</head>
+<body>
+  <div id="bnplKz-root"></div>
+  <button id="button">Открыть виджет</button>
+  <script defer="defer">
+    document.addEventListener('DOMContentLoaded', () => {
+      const bnplKzApi = new BnplKzApi.CPO({
+      rootId: 'bnplKz-root', //optional default 'bnplKz-root'
+      callbacks: {
+          onLoad: () => console.log('onLoad'), //optional
+          onError: ({ code, message }) => console.log('onError', code, message), // optional, code = "clientError" || "apiError"
+          onClosed: () => console.log('onClosed'), //optional
+          onEnd: () => console.log('onEnd'),
+          onRestart: (redirectLink) => console.log(redirectLink),
+          onDeclined: () => console.log('onDeclined'),
+        },
+      });
+    
+      const button = document.getElementById('button');
+      button.addEventListener('click', () => {
+        bnplKzApi.render({
+          redirectLink:
+          'https://dev.bnpl.kz/scoring?preapp=1a7fbe59-4ca2-012f-7666-72c533c3307a&phone=77773295237&link=http%3A%2F%2Flocalhost%3A5555%2Fcallback',
+        });
+      });
+    });
+    </script>
+</body>
+</html>
