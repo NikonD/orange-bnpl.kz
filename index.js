@@ -38,14 +38,13 @@ app.post('/callback', async (req, res) => {
     console.log(e)
     // res.send(500)
   }
+  console.log(result.status)
   if ((result.status == "preapproved") || (result.status == "completed")) {
     res.json({ response: result.status == "preapproved" ? result.status : "ok" })
   }
   else {
     res.json({ response: result.status })
   }
-
-  res.json({ response })
 })
 
 app.get('/callback/success', (req, res) => {
