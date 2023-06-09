@@ -32,7 +32,7 @@ app.post('/callback', async (req, res)=>{
   try { 
     let accessToken = await getAccess()
     let preappResponse = await preApp.sendPreapp(accessToken.access, req.body)
-    // console.log("SEND" ,preappResponse.data)
+    console.log("SEND" ,preappResponse.data)
   } catch (e) {
     // console.log(e)
     // res.send(500)
