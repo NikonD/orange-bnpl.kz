@@ -35,7 +35,7 @@ app.post('/callback', async (req, res)=>{
     console.log("SEND" ,preappResponse.data)
   } catch (e) {
     console.log(e)
-    res.send(500)
+    // res.send(500)
   }
 
   res.send("TEST")

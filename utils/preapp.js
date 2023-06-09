@@ -56,7 +56,7 @@ let preApp = async (acceess, phone) => {
 
 let sendPreapp = async (acceess, data) => {
   let preappResponse = await axios({
-    url: "https://dev.bnpl.kz/api/bnpl/v3/preapp",
+    url: "https://dev.bnpl.kz/api/bnpl/preapp",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
