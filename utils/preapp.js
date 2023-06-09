@@ -66,6 +66,7 @@ let sendPreapp = async (acceess, data) => {
   })
 
   console.log(preappResponse)
+  return preappResponse
 }
 
 module.exports = {preApp, sendPreapp}
