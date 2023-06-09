@@ -29,20 +29,28 @@ app.post('/callback', async (req, res) => {
   console.log("POST C", req.body)
   console.log("POST C", req.params)
   let result = req.body
-  try {
 
-    // let accessToken = await getAccess()
-    // let preappResponse = await preApp.sendPreapp(accessToken.access, req.body)
-    // console.log("SEND" ,preappResponse.data)
-  } catch (e) {
-    console.log(e)
-    // res.send(500)
-  }
   console.log(result.status)
+  switch (result.status) {
+    case "preapproved":
+      console.log("1")
+      res.json({ response: result.status })
+      break;
+    case "completed":
+      console.log("2")
+      res.json({ response: "ok" })
+      break;
+    default:
+      console.log("3")
+      res.json({ response: result.send })
+      break;
+  }
   if ((result.status == "preapproved") || (result.status == "completed")) {
+    console.log("1")
     res.json({ response: result.status == "preapproved" ? result.status : "ok" })
   }
   else {
+
     res.json({ response: result.status })
   }
 })
