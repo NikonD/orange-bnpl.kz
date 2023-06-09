@@ -60,9 +60,10 @@ let sendPreapp = async (acceess, data) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${acceess}`
+      "Authorization": `Bearer ${acceess}`,
+      "Accept": "application/json"
     },
-    data: data
+    data: JSON.stringify(data)
   })
 
   console.log(preappResponse)
