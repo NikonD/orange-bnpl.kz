@@ -25,7 +25,7 @@ app.post("/preapp", async (req, res) => {
   }
 })
 
-app.post('/callback', async (req, res) => {
+app.post('/callback', (req, res) => {
   console.log("POST C", req.body)
   console.log("POST C", req.params)
   let result = req.body
@@ -44,14 +44,6 @@ app.post('/callback', async (req, res) => {
       console.log("3")
       res.json({ response: result.send })
       break;
-  }
-  if ((result.status == "preapproved") || (result.status == "completed")) {
-    console.log("1")
-    res.json({ response: result.status == "preapproved" ? result.status : "ok" })
-  }
-  else {
-
-    res.json({ response: result.status })
   }
 })
 
