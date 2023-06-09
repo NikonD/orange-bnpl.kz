@@ -53,4 +53,17 @@ let preApp = async (acceess, phone) => {
   return preappResponse
 }
 
-module.exports = preApp
+
+let sendPreapp = async (acceess, data) => {
+  let preappResponse = await axios({
+    url: "https://dev.bnpl.kz/api/bnpl/v3/preapp",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${acceess}`
+    },
+    data: data
+  })
+}
+
+module.exports = {preApp, sendPreapp}

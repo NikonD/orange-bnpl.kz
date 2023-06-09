@@ -17,7 +17,7 @@ app.post("/preapp", async (req, res) => {
   try {
     let accessToken = await getAccess()
     console.log(accessToken)
-    let preappResponse = await preApp(accessToken.access, req.body.phone)
+    let preappResponse = await preApp.preApp(accessToken.access, req.body.phone)
     console.log(preappResponse.data)
     res.json(req.body)
   } catch (e) {
@@ -25,10 +25,20 @@ app.post("/preapp", async (req, res) => {
   }
 })
 
-app.post('/callback', (req, res)=>{
+app.post('/callback', async (req, res)=>{
   console.log("POST C", req.body)
   console.log("POST C", req.params)
-  res.redirect('/')
+
+  try { 
+    let accessToken = await getAccess()
+    let preappResponse = await preApp.sendPreapp(accessToken.access, req.body)
+    console.log("SEND" ,preappResponse.data)
+  } catch (e) {
+    console.log(e)
+    res.send(500)
+  }
+
+  res.send("TEST")
 })
 
 app.get('/callback/success', (req, res)=>{
