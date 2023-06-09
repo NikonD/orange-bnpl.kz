@@ -25,29 +25,36 @@ app.post("/preapp", async (req, res) => {
   }
 })
 
-app.post('/callback', async (req, res)=>{
+app.post('/callback', async (req, res) => {
   console.log("POST C", req.body)
   console.log("POST C", req.params)
+  let result = req.body
+  try {
 
-  try { 
-    let accessToken = await getAccess()
-    let preappResponse = await preApp.sendPreapp(accessToken.access, req.body)
-    console.log("SEND" ,preappResponse.data)
+    // let accessToken = await getAccess()
+    // let preappResponse = await preApp.sendPreapp(accessToken.access, req.body)
+    // console.log("SEND" ,preappResponse.data)
   } catch (e) {
     console.log(e)
     // res.send(500)
   }
+  if ((result.status == "preapproved") || (result.status == "completed")) {
+    res.json({ response: result.status == "preapproved" ? result.status : "ok" })
+  }
+  else {
+    res.json({ response: result.status })
+  }
 
-  res.send("TEST")
+  res.json({ response })
 })
 
-app.get('/callback/success', (req, res)=>{
+app.get('/callback/success', (req, res) => {
   console.log("POST S", req.body)
   console.log("POST S", req.params)
   res.send('success')
 })
 
-app.get('/callback/falilure', (req, res)=>{
+app.get('/callback/falilure', (req, res) => {
   console.log("POST F", req.body)
   console.log("POST F", req.params)
   res.send('failure')
