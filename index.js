@@ -34,7 +34,7 @@ app.post('/callback', async (req, res)=>{
     let preappResponse = await preApp.sendPreapp(accessToken.access, req.body)
     console.log("SEND" ,preappResponse.data)
   } catch (e) {
-    // console.log(e)
+    console.log(e)
     // res.send(500)
   }
 
@@ -44,13 +44,13 @@ app.post('/callback', async (req, res)=>{
 app.get('/callback/success', (req, res)=>{
   console.log("POST S", req.body)
   console.log("POST S", req.params)
-  res.redirect('/')
+  res.send('success')
 })
 
 app.get('/callback/falilure', (req, res)=>{
   console.log("POST F", req.body)
   console.log("POST F", req.params)
-  res.redirect('/')
+  res.send('failure')
 })
 
 app.get('/', (req, res) => {
