@@ -33,8 +33,8 @@ let preApp = async (acceess, phone) => {
       "phoneNumber": `${phone}`,
       // "expiresAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
       // "deliveryAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
-      "expiresAt": "2023-06-10T14:40:15Z",
-      "expiresAt": "2023-06-10T14:40:15Z",
+      "expiresAt": "2023-06-13T14:40:15Z",
+      "expiresAt": "2023-06-13T14:40:15Z",
       "deliveryPoint": {
         "region": "Notrh Kazakhstan",
         "city": "Petropavl",
