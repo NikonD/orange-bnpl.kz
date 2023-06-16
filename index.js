@@ -60,7 +60,10 @@ app.get('/callback/falilure', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello</h1>')
+  console.log('GET / b', req.body)
+  console.log('GET / q', req.query)
+  console.log('GET / p', req.params)
+  res.send('<h1>TEST</h1>')
 })
 
 app.listen(port, () => {
