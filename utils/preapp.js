@@ -1,6 +1,6 @@
 const { default: axios } = require("axios")
 
-let preApp = async (acceess, items, phone) => {
+let preApp = async (acceess, items) => {
   let itemsQuantity = items.length
   let billAmount = items.reduce((acc, obj) => {
     return acc + obj.itemSum
@@ -29,7 +29,7 @@ let preApp = async (acceess, items, phone) => {
       "successRedirect": "http://3.76.224.188:33333/callback/success",
       "failRedirect": "http://3.76.224.188:33333/callback/failure",
       "postLink": "http://3.76.224.188:33333/callback",
-      "phoneNumber": `${phone}`,
+      // "phoneNumber": `${phone}`,
       "expiresAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
       "deliveryAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
       // "expiresAt": "2023-06-14T14:40:15Z",
