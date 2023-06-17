@@ -63,9 +63,36 @@ app.get('/', (req, res) => {
   res.send('<h1>TEST</h1>')
 })
 
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
   console.log('POST / b', req.body)
-  res.json(req.body)
+  try {
+    let accessToken = await getAccess()
+    console.log(accessToken)
+    let items = []
+    let cartJSON = JSON.parse(req.body.cart)
+    cartJSON.forEach(el => {
+      items.push({
+        itemId: el.id,
+        itemName: el.name,
+        itemQuantity: el.quantity,
+        itemPrice: el.price,
+        itemSum: el.amount
+      })
+    });
+
+    let preappResponse = await preApp.preApp(accessToken.access, items, req.body.phone)
+    console.log(preappResponse.data)
+    if (!preappResponse.data.error) {
+      res.redirect(preappResponse.data.redirectLink)
+    }
+    else {
+      res.redirect('/?error')
+    }
+  } catch (e) {
+    console.log(e)
+    res.redirect('/?error')
+  }
+  // res.json(req.body)
 })
 
 app.listen(port, () => {

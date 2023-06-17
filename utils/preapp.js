@@ -1,6 +1,11 @@
 const { default: axios } = require("axios")
 
-let preApp = async (acceess, phone) => {
+let preApp = async (acceess, items, phone) => {
+  let itemsQuantity = items.length
+  let billAmount = items.reduce((acc, obj) => {
+    return acc + obj.itemSum
+  })
+
   console.log(acceess)
   let preappResponse = await axios({
     url: 'https://dev.bnpl.kz/api/bnpl/v3/preapp',
@@ -16,25 +21,17 @@ let preApp = async (acceess, phone) => {
         "pointCode": "01-0010-L1"
       },
       "billNumber": `zqq-${new Date().getTime()}`,
-      "billAmount": "6123",
-      "itemsQuantity": 1,
-      "items": [
-        {
-          "itemId": "42",
-          "itemName": "fg",
-          "itemQuantity": "1",
-          "itemPrice": "0",
-          "itemSum": 6123
-        }
-      ],
-      "successRedirect": "http://3.76.224.188:5555/callback/success",
-      "failRedirect": "http://3.76.224.188:5555/callback/failure",
-      "postLink": "http://3.76.224.188:5555/callback",
+      "billAmount": billAmount,
+      "itemsQuantity": itemsQuantity,
+      "items": items,
+      "successRedirect": "http://3.76.224.188:33333/callback/success",
+      "failRedirect": "http://3.76.224.188:33333/callback/failure",
+      "postLink": "http://3.76.224.188:33333/callback",
       "phoneNumber": `${phone}`,
-      // "expiresAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
-      // "deliveryAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
-      "expiresAt": "2023-06-14T14:40:15Z",
-      "expiresAt": "2023-06-14T14:40:15Z",
+      "expiresAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
+      "deliveryAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
+      // "expiresAt": "2023-06-14T14:40:15Z",
+      // "expiresAt": "2023-06-14T14:40:15Z",
       "deliveryPoint": {
         "region": "Notrh Kazakhstan",
         "city": "Petropavl",
