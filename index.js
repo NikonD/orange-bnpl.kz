@@ -83,7 +83,7 @@ app.post('/', async (req, res) => {
     let preappResponse = await preApp.preApp(accessToken.access, items)
     console.log(preappResponse.data)
     if (!preappResponse.data.error) {
-      res.redirect(preappResponse.data.redirectLink)
+      res.redirect(preappResponse.data.data.redirectLink)
     }
     else {
       console.log(e.response.data.error)
