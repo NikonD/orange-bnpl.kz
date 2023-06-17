@@ -72,7 +72,7 @@ app.post('/', async (req, res) => {
     let cartJSON = JSON.parse(req.body.cart)
     cartJSON.forEach(el => {
       items.push({
-        itemId: toString(el.id),
+        itemId: `${el.id}`,
         itemName: el.name.replace('"',"'"),
         itemQuantity: el.quantity,
         itemPrice: parseInt(el.price),
@@ -86,6 +86,7 @@ app.post('/', async (req, res) => {
       res.redirect(preappResponse.data.redirectLink)
     }
     else {
+      console.log(e.response.data.error)
       res.redirect('/?error')
     }
   } catch (e) {
