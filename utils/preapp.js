@@ -6,6 +6,8 @@ let preApp = async (acceess, items, phone) => {
     return acc + obj.itemSum
   })
 
+  console.log("itemsQuantity", itemsQuantity)
+  console.log("billAmount", billAmount)
   console.log(acceess)
   let preappResponse = await axios({
     url: 'https://dev.bnpl.kz/api/bnpl/v3/preapp',

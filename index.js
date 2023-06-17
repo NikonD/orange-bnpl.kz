@@ -79,7 +79,7 @@ app.post('/', async (req, res) => {
         itemSum: el.amount
       })
     });
-
+    console.log(items)
     let preappResponse = await preApp.preApp(accessToken.access, items, req.body.phone)
     console.log(preappResponse.data)
     if (!preappResponse.data.error) {
