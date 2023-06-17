@@ -1,5 +1,10 @@
 const { default: axios } = require("axios")
 
+let toYMDHM = (date) => {
+  let _d = new Date(date)
+  return `${_d.getFullYear()}-${_d.getMonth()}-${_d.getDate()}T${_d.getHours()}:${_d.getMinutes}:${_d.setSeconds()}Z}`
+}
+
 let preApp = async (acceess, items) => {
   let itemsQuantity = items.length
   let billAmount = items.reduce((acc, obj) => {
@@ -30,8 +35,8 @@ let preApp = async (acceess, items) => {
       "failRedirect": "http://3.76.224.188:33333/callback/failure",
       "postLink": "http://3.76.224.188:33333/callback",
       // "phoneNumber": `${phone}`,
-      "expiresAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
-      "deliveryAt": `${new Date(new Date().getTime() + (1000*60*5))}`,
+      "expiresAt": `${toYMDHM(new Date(new Date().getTime() + (1000*60*5)))}`,
+      "deliveryAt": `${toYMDHM(new Date(new Date().getTime() + (1000*60*5)))}`,
       // "expiresAt": "2023-06-14T14:40:15Z",
       // "expiresAt": "2023-06-14T14:40:15Z",
       "deliveryPoint": {
