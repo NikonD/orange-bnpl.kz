@@ -3,7 +3,7 @@ const { default: axios } = require("axios")
 let toYMDHM = (date) => {
   let _d = new Date(date)
   
-  return `${_d.getFullYear()}-${(_d.getMonth()+1).toString().padStart(2,0)}-${(_d.getDate()).toString().padStart(2,0)}T${(_d.getHours()).toString().padStart(2,0)}:${(_d.getMinutes()).toString().padStart(2,0)}:00Z}`
+  return `${_d.getFullYear()}-${(_d.getMonth()+1).toString().padStart(2,0)}-${(_d.getDate()).toString().padStart(2,0)}T${(_d.getHours()).toString().padStart(2,0)}:${(_d.getMinutes()).toString().padStart(2,0)}:00Z`
 }
 
 let preApp = async (acceess, items) => {
