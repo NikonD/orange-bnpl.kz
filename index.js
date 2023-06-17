@@ -73,10 +73,10 @@ app.post('/', async (req, res) => {
     cartJSON.forEach(el => {
       items.push({
         itemId: el.id,
-        itemName: el.name,
+        itemName: el.name.replace("\\\\","\\"),
         itemQuantity: el.quantity,
         itemPrice: el.price,
-        itemSum: el.amount
+        itemSum: parseInt(el.amount)
       })
     });
     console.log(items)
