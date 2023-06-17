@@ -73,7 +73,7 @@ app.post('/', async (req, res) => {
     cartJSON.forEach(el => {
       items.push({
         itemId: `${el.id}`,
-        itemName: el.name.replace('"',"'"),
+        itemName: el.name.replace("\\","").replace(`"`,""),
         itemQuantity: el.quantity,
         itemPrice: parseInt(el.price),
         itemSum: parseInt(el.amount)
