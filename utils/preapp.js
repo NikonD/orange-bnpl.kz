@@ -3,8 +3,8 @@ const { default: axios } = require("axios")
 let preApp = async (acceess, items) => {
   let itemsQuantity = items.length
   let billAmount = items.reduce((acc, obj) => {
-    return acc + obj.itemSum
-  })
+    return acc + parseInt(obj.itemSum)
+  },0)
 
   console.log("itemsQuantity", itemsQuantity)
   console.log("billAmount", billAmount)
