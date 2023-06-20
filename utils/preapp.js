@@ -27,7 +27,7 @@ let preApp = async (acceess, items) => {
         "partnerCode": "orange-flowers.kz",
         "pointCode": "01-0010-L1"
       },
-      "billNumber": `zqq-${new Date().getTime()}`,
+      "billNumber": `of${new Date().getTime()}`,
       "billAmount": billAmount,
       "itemsQuantity": itemsQuantity,
       "items": items,
