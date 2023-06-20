@@ -34,11 +34,8 @@ let preApp = async (acceess, items) => {
       "successRedirect": "https://orange-flowers.kz/successful_payment?status=ok",
       "failRedirect": "https://orange-flowers.kz/unsuccessful_payment",
       "postLink": "http://3.76.224.188:33333/callback",
-      // "phoneNumber": `${phone}`,
       "expiresAt": `${toYMDHM(new Date(new Date().getTime() + (1000*60*5)))}`,
       "deliveryAt": `${toYMDHM(new Date(new Date().getTime() + (1000*60*5)))}`,
-      // "expiresAt": "2023-06-14T14:40:15Z",
-      // "expiresAt": "2023-06-14T14:40:15Z",
       "deliveryPoint": {
         "region": "Notrh Kazakhstan",
         "city": "Petropavl",
@@ -46,8 +43,6 @@ let preApp = async (acceess, items) => {
         "street": "Pushkin",
         "house": "89",
         "flat": ""
-        // "firstName": "Nikon",
-        // "scondName": "Dolgushin"
       }
     })
   })
