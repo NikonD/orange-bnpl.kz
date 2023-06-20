@@ -37,11 +37,11 @@ let preApp = async (acceess, items) => {
       "expiresAt": `${toYMDHM(new Date(new Date().getTime() + (1000*60*5)))}`,
       "deliveryAt": `${toYMDHM(new Date(new Date().getTime() + (1000*60*5)))}`,
       "deliveryPoint": {
-        "region": "Notrh Kazakhstan",
-        "city": "Petropavl",
+        "region": "",
+        "city": "",
         "disctrict": "",
-        "street": "Pushkin",
-        "house": "89",
+        "street": "",
+        "house": "",
         "flat": ""
       }
     })
