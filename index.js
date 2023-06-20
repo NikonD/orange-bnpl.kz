@@ -1,4 +1,3 @@
-
 let express = require('express')
 let config = require('./config/config.json')
 const bodyParser = require('body-parser')
@@ -93,7 +92,6 @@ app.post('/', async (req, res) => {
     console.log(e)
     res.redirect('/?error')
   }
-  // res.json(req.body)
 })
 
 app.listen(port, () => {

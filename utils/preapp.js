@@ -2,7 +2,6 @@ const { default: axios } = require("axios")
 
 let toYMDHM = (date) => {
   let _d = new Date(date)
-  
   return `${_d.getFullYear()}-${(_d.getMonth()+1).toString().padStart(2,0)}-${(_d.getDate()).toString().padStart(2,0)}T${(_d.getHours()).toString().padStart(2,0)}:${(_d.getMinutes()).toString().padStart(2,0)}:00Z`
 }
 
@@ -32,8 +31,8 @@ let preApp = async (acceess, items) => {
       "billAmount": billAmount,
       "itemsQuantity": itemsQuantity,
       "items": items,
-      "successRedirect": "http://3.76.224.188:33333/callback/success",
-      "failRedirect": "http://3.76.224.188:33333/callback/failure",
+      "successRedirect": "https://orange-flowers.kz/success?status=ok",
+      "failRedirect": "https://orange-flowers.kz/failure",
       "postLink": "http://3.76.224.188:33333/callback",
       // "phoneNumber": `${phone}`,
       "expiresAt": `${toYMDHM(new Date(new Date().getTime() + (1000*60*5)))}`,
