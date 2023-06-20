@@ -89,7 +89,7 @@ app.post('/', async (req, res) => {
       res.redirect('/?error')
     }
   } catch (e) {
-    console.log(e)
+      console.log(e.response.data.error)
     res.redirect('/?error')
   }
 })
