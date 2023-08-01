@@ -15,7 +15,7 @@ let preApp = async (acceess, items) => {
   console.log("billAmount", billAmount)
   console.log(acceess)
   let preappResponse = await axios({
-    url: 'https://dev.bnpl.kz/api/bnpl/v3/preapp',
+    url: 'https://bnpl.kz/api/bnpl/v3/preapp',
     method: "POST",
     headers: {
       "Authorization": `Bearer ${acceess}`,
@@ -55,7 +55,7 @@ let preApp = async (acceess, items) => {
 
 let sendPreapp = async (acceess, data) => {
   let preappResponse = await axios({
-    url: "https://dev.bnpl.kz/api/bnpl/v3/preapp",
+    url: "https://bnpl.kz/api/bnpl/v3/preapp",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
